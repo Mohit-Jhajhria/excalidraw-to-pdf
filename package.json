@@ -1,0 +1,41 @@
+{
+  "name": "excalidraw-to-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free, open source Excalidraw to PDF converter: one slide per page, no blank space, runs in the browser.",
+  "homepage": "https://excalidraw-to-pdf.pages.dev/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohit-Jhajhria/excalidraw-to-pdf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mohit-Jhajhria/excalidraw-to-pdf/issues"
+  },
+  "keywords": [
+    "excalidraw",
+    "pdf",
+    "converter",
+    "slides",
+    "multi-page"
+  ],
+  "author": "Moita",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "web:build": "node build-web.mjs",
+    "web": "node build-web.mjs && node serve-web.mjs",
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@excalidraw/excalidraw": "^0.18.1",
+    "@fontsource/noto-sans-devanagari": "^5.3.0",
+    "esbuild": "^0.28.2",
+    "pdf-lib": "^1.17.1",
+    "puppeteer-core": "^25.18.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "bin": {
+    "excalidraw2pdf": "bin/excalidraw2pdf.mjs"
+  }
+}

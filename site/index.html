@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Excalidraw to PDF Converter – Free, Multi-Page, No Upload</title>
+    <meta name="description" content="Convert .excalidraw files to PDF with one slide per page and no blank space. Free, open source, and runs in your browser, so your file is never uploaded." />
+    <link rel="canonical" href="https://excalidraw-to-pdf.pages.dev/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#f1f2f8" />
+    <!-- Google Search Console: once the site is live, Google gives you a verification tag. Paste it on the next line. -->
+
+    <!-- Link previews (WhatsApp, Slack, Discord, X, LinkedIn, Reddit) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Excalidraw to PDF" />
+    <meta property="og:title" content="Excalidraw to PDF Converter – Free, Multi-Page, No Upload" />
+    <meta property="og:description" content="One slide per page, no blank space. Free, open source, runs in your browser." />
+    <meta property="og:url" content="https://excalidraw-to-pdf.pages.dev/" />
+    <meta property="og:image" content="https://excalidraw-to-pdf.pages.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Excalidraw to PDF Converter – Free, Multi-Page, No Upload" />
+    <meta name="twitter:description" content="One slide per page, no blank space. Free, open source, runs in your browser." />
+    <meta name="twitter:image" content="https://excalidraw-to-pdf.pages.dev/og-image.png" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b5bd6'/%3E%3Crect x='8' y='5' width='16' height='22' rx='2.5' fill='white'/%3E%3Cpath d='M5 16h22' stroke='%23d6336c' stroke-width='2.4' stroke-dasharray='3.2 2.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+    <!-- Structured data: tells Google and AI tools what this page is. Keep the FAQ in step with the visible FAQ below. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Excalidraw to PDF",
+          "url": "https://excalidraw-to-pdf.pages.dev/",
+          "description": "Free, open source converter that turns .excalidraw files into multi-page PDFs with one slide per page and no blank space. Runs in the browser; files are never uploaded.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any (modern desktop web browser)",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "license": "https://opensource.org/licenses/MIT",
+          "sameAs": ["https://github.com/Mohit-Jhajhria/excalidraw-to-pdf"]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I convert an Excalidraw file to PDF?",
+              "acceptedAnswer": { "@type": "Answer", "text": "In Excalidraw, open the menu and choose Save to… to get a .excalidraw file. Open that file on this page, check the list of pages, and press Download PDF." }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I make a multi-page PDF from one Excalidraw drawing?",
+              "acceptedAnswer": { "@type": "Answer", "text": "When you open your file, the tool already makes one page for each slide. To change the split, click between two slides to add a cut line. Each line starts a new page. Drag a line to move it, or click its × to remove it." }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do my slides look small on a big blank page?",
+              "acceptedAnswer": { "@type": "Answer", "text": "That happens when a converter uses the whole drawing area as the page size. This tool cuts every page to just its own content, so a slide fills its page with only a very small margin." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my Excalidraw file uploaded to a server?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Everything runs in your browser, so your drawing never leaves your computer." }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the Excalidraw to PDF converter free?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free, needs no account, adds no watermark, and the code is open source under the MIT license." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I select and copy text in the PDF?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Not at the moment. Each page is saved as a sharp picture, so text and drawings look exactly like they do in Excalidraw, but the text cannot be selected." }
+            },
+            {
+              "@type": "Question",
+              "name": "Which browsers does it work in?",
+              "acceptedAnswer": { "@type": "Answer", "text": "It works best in Google Chrome." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css" />
+    <style id="scene-fonts"></style>
+    <script>
+      // Excalidraw loads its fonts from ./fonts next to this page (no CDN).
+      window.EXCALIDRAW_ASSET_PATH = new URL("./", location.href).href;
+    </script>
+  </head>
+  <body>
+    <!-- small icons used around the page -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-cut" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" />
+        <path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12" />
+      </symbol>
+      <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /><path d="M9 14h6M9 17.5h4" />
+      </symbol>
+    </svg>
+
+    <header class="top">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#5b5bd6" />
+          <rect x="8" y="5" width="16" height="22" rx="2.5" fill="#fff" />
+          <path d="M5 16h22" stroke="#d6336c" stroke-width="2.4" stroke-dasharray="3.2 2.6" stroke-linecap="round" />
+        </svg>
+        <span class="wordmark">Excalidraw to PDF</span>
+      </div>
+      <div class="top-actions">
+        <span id="summary" class="summary" aria-live="polite"></span>
+        <a class="toplink" href="https://github.com/Mohit-Jhajhria/excalidraw-to-pdf">GitHub</a>
+        <button id="btn-open" type="button">Open another file</button>
+        <input id="file" type="file" accept=".excalidraw,.json,application/json" hidden />
+        <button id="btn-download" type="button" class="primary" disabled>Download PDF</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="empty" class="empty">
+        <div class="start">
+          <div class="hero">
+            <div class="hero-copy">
+              <h1>Convert Excalidraw to PDF, one slide per page</h1>
+              <p class="lede">Every page is cut to fit its slide, so you never get a small slide floating on a big blank sheet.</p>
+
+              <div class="dropzone" id="dropzone">
+                <svg class="drop-icon" aria-hidden="true"><use href="#i-file" /></svg>
+                <div class="drop-body">
+                  <p class="drop-title">Drop your <b>.excalidraw</b> file here</p>
+                  <p class="fine">Free, no account, no watermark. Your file stays in your browser and is never uploaded.</p>
+                  <p id="load-error" class="error" hidden></p>
+                </div>
+                <button id="btn-open2" type="button" class="primary big">Choose a file</button>
+              </div>
+            </div>
+
+            <figure class="hero-art">
+              <svg class="art" viewBox="0 0 580 400" role="img" aria-label="A tall drawing holding three slides is cut along two dashed lines into three PDF pages, and each page is filled by one slide.">
+                <defs>
+                  <symbol id="slide" viewBox="0 0 160 90">
+                    <rect width="160" height="90" rx="5" fill="#1d1d24" />
+                    <path d="M12 17c6-5 11 2 17-1s10 3 17 0 9 2 14-1" fill="none" stroke="#f3f3fa" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 36c14-2 28 1 44-1M12 49c10 1 22-1 30 0M12 62c12-2 26 1 38-1" fill="none" stroke="#b9b9cf" stroke-width="3" stroke-linecap="round" />
+                    <path d="M104 26c10-7 28-3 31 10s-9 26-23 24-19-14-8-34" fill="none" stroke="#8f8ff2" stroke-width="3.2" stroke-linecap="round" />
+                    <path d="M110 44l7 7 13-15" fill="none" stroke="#ff7aa2" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 77c20-3 44 2 70-1" fill="none" stroke="#ff7aa2" stroke-width="2.6" stroke-linecap="round" opacity=".8" />
+                  </symbol>
+                  <filter id="sheet-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#171a2e" flood-opacity=".2" />
+                  </filter>
+                </defs>
+
+                <!-- the whole drawing, with three slides in it -->
+                <rect x="34" y="6" width="212" height="388" rx="10" fill="#fff" stroke="#c9cde0" stroke-width="1.5" stroke-dasharray="3 5" />
+                <use href="#slide" x="50" y="20" width="180" height="101.25" />
+                <use href="#slide" x="50" y="150" width="180" height="101.25" />
+                <use href="#slide" x="50" y="280" width="180" height="101.25" />
+
+                <!-- the three pages that come out -->
+                <g class="sheet s1" filter="url(#sheet-shadow)"><rect x="330" y="10" width="214" height="120" rx="4" fill="#fff" /><use href="#slide" x="333" y="12.5" width="208" height="117" /></g>
+                <g class="sheet s2" filter="url(#sheet-shadow)"><rect x="330" y="140" width="214" height="120" rx="4" fill="#fff" /><use href="#slide" x="333" y="142.5" width="208" height="117" /></g>
+                <g class="sheet s3" filter="url(#sheet-shadow)"><rect x="330" y="270" width="214" height="120" rx="4" fill="#fff" /><use href="#slide" x="333" y="272.5" width="208" height="117" /></g>
+
+                <!-- the cut lines run through the drawing and between the pages -->
+                <g fill="none" stroke="#d6336c" stroke-width="2.4" stroke-dasharray="9 6" stroke-linecap="round">
+                  <line class="cut c1" x1="32" y1="135" x2="574" y2="135" />
+                  <line class="cut c2" x1="32" y1="265" x2="574" y2="265" />
+                </g>
+                <g color="#d6336c">
+                  <use href="#i-cut" x="4" y="123" width="24" height="24" />
+                  <use href="#i-cut" x="4" y="253" width="24" height="24" />
+                </g>
+              </svg>
+              <figcaption>Each cut line in your drawing becomes the edge of a page in your PDF.</figcaption>
+            </figure>
+          </div>
+
+          <div class="cutrule" aria-hidden="true"></div>
+
+          <div class="info" id="how-to">
+            <h2>How to convert Excalidraw to PDF</h2>
+            <ol class="steps">
+              <li>
+                <h3>Save from Excalidraw</h3>
+                <p>Open the menu and choose <b>Save to…</b> to get a <code>.excalidraw</code> file.</p>
+              </li>
+              <li>
+                <h3>Open it here</h3>
+                <p>Drop the file on this page. It is split into one page for each slide.</p>
+              </li>
+              <li>
+                <h3>Fix the cuts</h3>
+                <p>Click between two slides to add a cut line. Drag a line to move it, or click its × to remove it.</p>
+              </li>
+              <li>
+                <h3>Download</h3>
+                <p>Untick any page you do not want, then press <b>Download PDF</b>.</p>
+              </li>
+            </ol>
+
+            <div class="cutrule" aria-hidden="true"></div>
+
+            <h2>Questions and answers</h2>
+            <div class="faq">
+              <div>
+                <h3>How do I convert an Excalidraw file to PDF?</h3>
+                <p>In Excalidraw, open the menu and choose Save to… to get a .excalidraw file. Open that file on this page, check the list of pages, and press Download PDF.</p>
+              </div>
+              <div>
+                <h3>How do I make a multi-page PDF from one Excalidraw drawing?</h3>
+                <p>When you open your file, the tool already makes one page for each slide. To change the split, click between two slides to add a cut line. Each line starts a new page. Drag a line to move it, or click its × to remove it.</p>
+              </div>
+              <div>
+                <h3>Why do my slides look small on a big blank page?</h3>
+                <p>That happens when a converter uses the whole drawing area as the page size. This tool cuts every page to just its own content, so a slide fills its page with only a very small margin.</p>
+              </div>
+              <div>
+                <h3>Is my Excalidraw file uploaded to a server?</h3>
+                <p>No. Everything runs in your browser, so your drawing never leaves your computer.</p>
+              </div>
+              <div>
+                <h3>Is the Excalidraw to PDF converter free?</h3>
+                <p>Yes. It is free, needs no account, adds no watermark, and the code is open source under the MIT license.</p>
+              </div>
+              <div>
+                <h3>Can I select and copy text in the PDF?</h3>
+                <p>Not at the moment. Each page is saved as a sharp picture, so text and drawings look exactly like they do in Excalidraw, but the text cannot be selected.</p>
+              </div>
+              <div>
+                <h3>Which browsers does it work in?</h3>
+                <p>It works best in Google Chrome.</p>
+              </div>
+            </div>
+          </div>
+
+          <footer class="foot">
+            <p>Free and open source. <a href="https://github.com/Mohit-Jhajhria/excalidraw-to-pdf">View the code on GitHub</a> · <a href="third-party-notices.txt">Credits and licenses</a></p>
+            <p>This is an independent project and is not affiliated with Excalidraw.</p>
+          </footer>
+        </div>
+      </section>
+
+      <section id="workspace" hidden>
+        <div id="canvas-col">
+          <div class="toolbar">
+            <span class="howto"><svg aria-hidden="true"><use href="#i-cut" /></svg>Click between two slides to cut a new page. Drag a pink line to move it, click its × to remove it.</span>
+            <span class="spacer"></span>
+            <div class="zoom">
+              <button id="z-out" type="button" title="Zoom out (Ctrl + mouse wheel)" aria-label="Zoom out">&minus;</button>
+              <span id="z-val" class="zval">100%</span>
+              <button id="z-in" type="button" title="Zoom in (Ctrl + mouse wheel)" aria-label="Zoom in">+</button>
+              <button id="z-fit" type="button" title="Fit the width of the drawing (0)">Fit</button>
+            </div>
+          </div>
+          <div id="stage" class="stage" tabindex="0">
+            <div id="world"></div>
+            <div id="vbar" class="vbar" hidden><div id="vthumb" class="vthumb"></div></div>
+          </div>
+        </div>
+
+        <aside id="side">
+          <section class="card grow">
+            <h2>Pages <small>Each page is the area between two pink lines. Untick a page to leave it out.</small></h2>
+            <div id="board"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <dialog id="busy">
+      <h3>Making your PDF</h3>
+      <p id="busy-text">Starting…</p>
+      <progress id="busy-bar" max="100" value="0"></progress>
+      <div class="dlg-actions"><button id="busy-cancel" type="button">Cancel</button></div>
+    </dialog>
+
+    <script>
+      // Only when opened straight from disk: bring the fonts along inside the page.
+      if (location.protocol === "file:") document.write('<script src="fonts-embedded.js"><\/script>');
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
