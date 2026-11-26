@@ -52,33 +52,11 @@ That happens when the whole drawing area is used as the page size. Here every pa
 **Is my file uploaded anywhere?**
 No. Everything runs in your browser.
 
-## Run it yourself
+## For developers
 
-The finished website is the `site` folder. It is plain static files, so you can put it on any static host (Cloudflare Pages, GitHub Pages, Netlify and so on). To open it from your own computer:
+The source code is on GitHub under the [Moita License](LICENSE) — free for personal, educational and non-commercial use. See [CONTRIBUTING.md](CONTRIBUTING.md) if you would like to help improve the tool.
 
-```bash
-npm install
-npm run web          # builds the site and serves it at http://localhost:8080
-```
-
-You can also double-click `site/index.html` to use it straight from disk, without a server.
-
-## Publish your own copy
-
-For personal or non-commercial use (see the [license](LICENSE)), you can host your own copy for free:
-
-1. Fork this repository on GitHub.
-2. Create a free [Cloudflare Pages](https://pages.cloudflare.com/) project and connect it to your fork with **Connect to Git**.
-3. Use these settings: production branch `main`, framework preset `None`, build command empty, build output directory `site`.
-4. Save and deploy. Your copy is served from `<project-name>.pages.dev`.
-
-Any other static host (GitHub Pages, Netlify and so on) works the same way: publish the `site` folder.
-
-If you change anything in `web/`, `src/` or `build-web.mjs`, run `npm run web:build` and commit the updated `site` folder, because `site` is what gets published. Before you publish a copy, replace the address `excalidraw-to-pdf.pages.dev` and the GitHub link in `web/index.html` and `web/public/` with your own.
-
-## Command-line version (optional)
-
-This repository also holds an older command-line tool that makes **vector** PDFs (selectable text) from Excalidraw frames, using headless Chrome. It is separate from the website and needs Node 18+ and Chrome, Chromium or Edge installed.
+There is also a **command-line version** that makes **vector** PDFs (with selectable text) from Excalidraw frames, using headless Chrome. It needs Node 18+ and Chrome, Chromium or Edge installed.
 
 ```bash
 npm install

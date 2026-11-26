@@ -31,9 +31,8 @@ The website is built from these files:
 npm install
 npm run web        # builds the site and serves it at http://localhost:8080
 npm run web:build  # only builds
+npm test           # runs the unit tests
 ```
-
-The `site` folder is the finished website. It is committed on purpose, so Cloudflare Pages can publish it without running a build. After you change anything in `web/`, `src/` or `build-web.mjs`, run `npm run web:build` and commit the updated `site` folder together with your change.
 
 Keep the FAQ in `web/index.html` identical to the FAQ data in the page's JSON-LD block (the `<script type="application/ld+json">` near the top). Search engines compare the two.
 
