@@ -3,3 +3,10 @@ dist/
 *.pdf.tmp
 .DS_Store
 Thumbs.db
+
+# The site/ folder is the build output of `npm run web:build`.
+# It is intentionally committed so Cloudflare Pages can publish it without
+# running a build step. If you configure Cloudflare Pages to run the build
+# command itself, delete the site/ folder, run `git rm -r --cached site/`,
+# and remove these two comment lines along with the line below.
+# site/

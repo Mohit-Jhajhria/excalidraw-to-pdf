@@ -41,4 +41,4 @@ Keep the FAQ in `web/index.html` identical to the FAQ data in the page's JSON-LD
 
 - Keep changes small and focused: one idea per pull request
 - Say what you tested and in which browser
-- By contributing, you agree that your code is shared under the MIT license of this repository
+- By contributing, you agree that your contribution is covered by the Moita License of this repository (see `LICENSE`)

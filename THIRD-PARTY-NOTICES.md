@@ -1,6 +1,6 @@
 # Credits and third-party licenses
 
-Excalidraw to PDF is made by Moita and released under the MIT license (see `LICENSE`).
+Excalidraw to PDF is made by Moita and released under the Moita License (see `LICENSE`).
 It is not affiliated with or endorsed by Excalidraw.
 
 The website is built from other people's free software. This page lists what is inside it and under

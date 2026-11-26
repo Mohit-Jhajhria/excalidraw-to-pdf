@@ -49,14 +49,24 @@ function toast(msg, ms = 3200) {
 }
 
 // ------------------------------------------------------- page rendering ---
+// LRU cache: keeps the most-recently-used SVG promises, drops the oldest first.
+// Avoids the stampede that a plain cache.clear() causes when the limit is hit.
+const MAX_CACHE = 80;
 const cache = new Map();
 function rawSvg(p) {
   const key = `${p.x},${p.y},${p.w},${p.h}`;
-  if (!cache.has(key)) {
-    if (cache.size > 300) cache.clear();
-    cache.set(key, exportRegion(state.scene, p, { dark: state.scene.dark, background: state.scene.background }));
+  if (cache.has(key)) {
+    // Bump to the end of the Map so it counts as most-recently used.
+    const v = cache.get(key);
+    cache.delete(key);
+    cache.set(key, v);
+    return v;
   }
-  return cache.get(key);
+  // Evict the oldest entry before adding a new one.
+  if (cache.size >= MAX_CACHE) cache.delete(cache.keys().next().value);
+  const promise = exportRegion(state.scene, p, { dark: state.scene.dark, background: state.scene.background });
+  cache.set(key, promise);
+  return promise;
 }
 // the same SVG can be on screen twice, so its internal ids must be unique per copy
 function uniqueClone(svg) {

@@ -1,6 +1,6 @@
 # Excalidraw to PDF
 
-**Convert Excalidraw drawings to PDF with one slide per page and no blank space. Free, open source, and it runs in your browser, so your file is never uploaded.**
+**Convert Excalidraw drawings to PDF with one slide per page and no blank space. Free, and it runs in your browser, so your file is never uploaded.**
 
 **[Open the tool: excalidraw-to-pdf.pages.dev](https://excalidraw-to-pdf.pages.dev/)**
 
@@ -63,7 +63,18 @@ npm run web          # builds the site and serves it at http://localhost:8080
 
 You can also double-click `site/index.html` to use it straight from disk, without a server.
 
-To publish your own copy with Cloudflare Pages, connect this repository and set the build command to nothing and the output directory to `site`. The step-by-step guide is in [START-HERE.md](START-HERE.md).
+## Publish your own copy
+
+For personal or non-commercial use (see the [license](LICENSE)), you can host your own copy for free:
+
+1. Fork this repository on GitHub.
+2. Create a free [Cloudflare Pages](https://pages.cloudflare.com/) project and connect it to your fork with **Connect to Git**.
+3. Use these settings: production branch `main`, framework preset `None`, build command empty, build output directory `site`.
+4. Save and deploy. Your copy is served from `<project-name>.pages.dev`.
+
+Any other static host (GitHub Pages, Netlify and so on) works the same way: publish the `site` folder.
+
+If you change anything in `web/`, `src/` or `build-web.mjs`, run `npm run web:build` and commit the updated `site` folder, because `site` is what gets published. Before you publish a copy, replace the address `excalidraw-to-pdf.pages.dev` and the GitHub link in `web/index.html` and `web/public/` with your own.
 
 ## Command-line version (optional)
 
@@ -88,4 +99,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-[MIT](LICENSE) © 2026 Moita
+[Moita License](LICENSE) © 2026 Moita. The source code is free for personal, educational and non-commercial use. Commercial use needs written permission. The public website is free for everyone to use. Read the [LICENSE](LICENSE) file for the exact terms.

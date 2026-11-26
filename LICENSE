@@ -1,21 +1,49 @@
-MIT License
+Moita License, Version 1.0
 
-Copyright (c) 2026 Moita
+Copyright (c) 2026 Moita (https://github.com/Mohit-Jhajhria). All rights reserved,
+except for the permissions given below.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. What you may do
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+   You may use, copy, change and share this software and its source code,
+   free of charge, for personal, educational, research, hobby and non-profit
+   purposes. This includes running your own copy of the website for those
+   purposes.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. What you may not do without written permission
+
+   You may not use this software, or anything made from it, for commercial
+   purposes. Commercial purposes means use by or for a company or any other
+   for-profit organization, and any use that is meant to make money, for
+   example selling it, offering it as a paid service, or showing ads on a copy
+   of it.
+
+   To ask for permission for commercial use, open an issue at
+   https://github.com/Mohit-Jhajhria/excalidraw-to-pdf or contact Moita through
+   the GitHub profile above.
+
+3. The public website
+
+   This license covers the source code. Using the free website at
+   https://excalidraw-to-pdf.pages.dev/ to convert your own files is free for
+   everyone, including companies and their staff.
+
+4. Conditions
+
+   Keep this license and the copyright line with every copy you share. If you
+   share a changed version, say clearly that it has been changed.
+
+5. Other people's software
+
+   This software contains and uses other people's software and fonts (for
+   example Excalidraw, React and pdf-lib). They keep their own licenses, which
+   are listed in THIRD-PARTY-NOTICES.md. This license does not change them.
+
+6. No warranty
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+   ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

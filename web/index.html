@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Excalidraw to PDF Converter – Free, Multi-Page, No Upload</title>
-    <meta name="description" content="Convert .excalidraw files to PDF with one slide per page and no blank space. Free, open source, and runs in your browser, so your file is never uploaded." />
+    <meta name="description" content="Convert .excalidraw files to PDF with one slide per page and no blank space. Free, and it runs in your browser, so your file is never uploaded." />
     <link rel="canonical" href="https://excalidraw-to-pdf.pages.dev/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#f1f2f8" />
@@ -14,14 +14,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Excalidraw to PDF" />
     <meta property="og:title" content="Excalidraw to PDF Converter – Free, Multi-Page, No Upload" />
-    <meta property="og:description" content="One slide per page, no blank space. Free, open source, runs in your browser." />
+    <meta property="og:description" content="One slide per page, no blank space. Free, runs in your browser." />
     <meta property="og:url" content="https://excalidraw-to-pdf.pages.dev/" />
     <meta property="og:image" content="https://excalidraw-to-pdf.pages.dev/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Excalidraw to PDF Converter – Free, Multi-Page, No Upload" />
-    <meta name="twitter:description" content="One slide per page, no blank space. Free, open source, runs in your browser." />
+    <meta name="twitter:description" content="One slide per page, no blank space. Free, runs in your browser." />
     <meta name="twitter:image" content="https://excalidraw-to-pdf.pages.dev/og-image.png" />
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b5bd6'/%3E%3Crect x='8' y='5' width='16' height='22' rx='2.5' fill='white'/%3E%3Cpath d='M5 16h22' stroke='%23d6336c' stroke-width='2.4' stroke-dasharray='3.2 2.6' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -35,12 +35,12 @@
           "@type": "WebApplication",
           "name": "Excalidraw to PDF",
           "url": "https://excalidraw-to-pdf.pages.dev/",
-          "description": "Free, open source converter that turns .excalidraw files into multi-page PDFs with one slide per page and no blank space. Runs in the browser; files are never uploaded.",
+          "description": "Free converter that turns .excalidraw files into multi-page PDFs with one slide per page and no blank space. Runs in the browser; files are never uploaded.",
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Any (modern desktop web browser)",
           "isAccessibleForFree": true,
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "license": "https://opensource.org/licenses/MIT",
+          "license": "https://github.com/Mohit-Jhajhria/excalidraw-to-pdf/blob/main/LICENSE",
           "sameAs": ["https://github.com/Mohit-Jhajhria/excalidraw-to-pdf"]
         },
         {
@@ -69,7 +69,7 @@
             {
               "@type": "Question",
               "name": "Is the Excalidraw to PDF converter free?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free, needs no account, adds no watermark, and the code is open source under the MIT license." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is free, needs no account, and adds no watermark. The code is on GitHub and is free for personal and non-commercial use." }
             },
             {
               "@type": "Question",
@@ -95,6 +95,12 @@
     </script>
   </head>
   <body>
+    <noscript>
+      <div style="font-family:sans-serif;padding:40px;text-align:center;max-width:480px;margin:60px auto;border:1px solid #ddd;border-radius:12px">
+        <p style="font-size:22px;font-weight:700;margin:0 0 12px">JavaScript is required</p>
+        <p style="color:#555;margin:0">Excalidraw to PDF converts your drawing entirely in your browser — no upload, no server. For this to work, please enable JavaScript and reload the page.</p>
+      </div>
+    </noscript>
     <!-- small icons used around the page -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
       <symbol id="i-cut" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -229,7 +235,7 @@
               </div>
               <div>
                 <h3>Is the Excalidraw to PDF converter free?</h3>
-                <p>Yes. It is free, needs no account, adds no watermark, and the code is open source under the MIT license.</p>
+                <p>Yes. It is free, needs no account, and adds no watermark. The code is on GitHub and is free for personal and non-commercial use.</p>
               </div>
               <div>
                 <h3>Can I select and copy text in the PDF?</h3>
@@ -242,8 +248,31 @@
             </div>
           </div>
 
+          <div class="cutrule" aria-hidden="true"></div>
+
+          <div class="info" id="cli-section">
+            <h2>Need selectable text in your PDF?</h2>
+            <p class="lede" style="margin-top:0">The website saves each page as a sharp picture — text looks perfect but cannot be selected or copied. If you need text that can be highlighted, use the <strong>command-line version</strong> instead: it produces a fully vector PDF where text is real and searchable.</p>
+            <ol class="steps" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+              <li>
+                <h3>Install</h3>
+                <p>Make sure you have Node.js 18+ and Chrome or Edge installed, then run <code>npm install</code> inside the project folder.</p>
+              </li>
+              <li>
+                <h3>Build</h3>
+                <p>Run <code>npm run build</code> once to compile the renderer into <code>dist/bundle.js</code>.</p>
+              </li>
+              <li>
+                <h3>Convert</h3>
+                <p>Run <code>node bin/excalidraw2pdf.mjs my-slides.excalidraw</code>. A vector PDF appears next to the input file. Use <code>--help</code> to see all options.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="cutrule" aria-hidden="true"></div>
+
           <footer class="foot">
-            <p>Free and open source. <a href="https://github.com/Mohit-Jhajhria/excalidraw-to-pdf">View the code on GitHub</a> · <a href="third-party-notices.txt">Credits and licenses</a></p>
+            <p>Free to use. <a href="https://github.com/Mohit-Jhajhria/excalidraw-to-pdf">View the code on GitHub</a> · <a href="third-party-notices.txt">Credits and licenses</a></p>
             <p>This is an independent project and is not affiliated with Excalidraw.</p>
           </footer>
         </div>
@@ -290,5 +319,27 @@
       if (location.protocol === "file:") document.write('<script src="fonts-embedded.js"><\/script>');
     </script>
     <script src="app.js"></script>
+
+    <script>
+      /* Show a soft banner if the user is not on a Chromium-based browser.
+         We detect by checking for the chrome object, which only Chromium exposes. */
+      (function () {
+        const isChromium = !!(window.chrome && window.chrome.runtime !== undefined) ||
+          /Chrome\//.test(navigator.userAgent) && !/Edg\//.test(navigator.userAgent);
+        // Edge is Chromium-based and works fine, so we only warn for true non-Chromium.
+        const isEdge    = /Edg\//.test(navigator.userAgent);
+        if (!isChromium && !isEdge) {
+          const bar = document.createElement("div");
+          bar.style.cssText =
+            "position:fixed;bottom:0;left:0;right:0;z-index:100;background:#fff3cd;" +
+            "color:#664d03;padding:10px 20px;font-size:14px;text-align:center;" +
+            "border-top:1px solid #ffc107;display:flex;align-items:center;justify-content:center;gap:12px;";
+          bar.innerHTML =
+            "<span>⚠️ This tool works best in <strong>Google Chrome</strong> or <strong>Microsoft Edge</strong>. Some features may not work correctly in your current browser.</span>" +
+            "<button onclick=\"this.parentElement.remove()\" style=\"background:transparent;border:none;cursor:pointer;font-size:18px;line-height:1;padding:0 4px;color:#664d03\" aria-label=\"Dismiss\">×</button>";
+          document.body.appendChild(bar);
+        }
+      })();
+    </script>
   </body>
 </html>
